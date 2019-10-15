@@ -116,17 +116,105 @@
 #         print("hello, " + name)
 
 
+# # 传递列表
+# def great_users(names) :
+#     for name in names :
+#         msg = "Hello, " + name.title() + "!"
+#         print(msg)
+
+# usernames = ["jason", "leo", "jack"]
+# great_users(usernames)
 
 
+# # 在函数中修改列表
+# def move(current_ls, new_ls) :
+#     while current_ls :
+#         current_l = current_ls.pop()
+#         print("making " + current_l)
+#         new_ls.append(current_l)
+
+# def show(new_ls) :
+#     for new_l in new_ls :
+#         print(new_l + " is finished.")
+
+# current_ls = ["a", "b", "c"]
+# new_ls = []
+
+# move(current_ls[:], new_ls) # 如果不想清空原始列表，可以把 副本 传过去。使用[:]
+# show(new_ls)
 
 
+# # 传递任意数量的实参
+# def make_pizza(*toppings) : # 形参名 *toppings 中的星号 让Python创建一个名为topping的空元组，并将收到的所有值都封装到这个元组中。
+#     """打印顾客点的所有配料"""
+#     print(toppings) # 此处也可以用 for循环 进行遍历
+
+# make_pizza("pepperoni")
+# make_pizza("mushroom", "green peppers", "extra cheese")
 
 
+# # 结合使用 位置实参 和 任意数量实参
+# def make_pizza(size, *toppings) : 
+#     """打印顾客点的所有配料"""
+#     print(size, toppings) # , 可以区分 int 和 str
+
+# make_pizza(6, "pepperoni")
+# make_pizza(12, "mushroom", "green peppers", "extra cheese")
 
 
+# # 使用任意数量的关键字实参
+# def build_profile(fname, lname, **user_info) : # 形参 **user_info 中的两个星号让Python创建一个名为user_info的 空字典，并将收集到的所有 名称-值 对都封装到这个字典中。
+#     """创建一个字典，其中包含我们知道的有关用户的一切"""
+#     profile = {}
+#     profile["first_name"] = fname
+#     profile["last_name"] = lname
+#     for key, value in user_info.items() : # 在这个函数中，可以像访问其他字典那样访问user_info中的 名称-值 对。
+#         profile[key] = value
+#     return profile
+
+# user_info = build_profile("Jason", "Hu", nationality="China", sex="male")
+# print(user_info)
 
 
+# # 将函数储存在模块中
+# import pizza
+
+# pizza.make_pizza(16, "pepperoni")
+# pizza.make_pizza(12, "mushroom", "green peppers", "extra cheese")
 
 
+# # 导入特定函数
+# """
+# 导入模块中的特定函数
+# from module_name import function_name
+
+# 通过用逗号分隔函数名，可根据需要从模块中导入任意数量的函数
+# from module_name import function_0, function_1, function_2
+
+# 对于前面 pizza 的例子，如果只想导入要使用的函数，代码如下👇
+# from pizza import make_pizza
+
+# make_pizza(...) # 注意 此时在调用函数时，不用加模块名
+# """
 
 
+# # 使用as给函数指定别名
+# # 例👇
+# from pizza import make_pizza as mp
+# mp(16, "pepperoni")
+
+
+# # 使用as给模块指定别名
+# # 例👇
+# import pizza as p 
+
+# p.make_pizza(16, "pepperoni")
+
+
+# # 导入模块中的所有函数
+# from pizza import *
+
+# make_pizza(16, "pepperoni")
+# make_pizza(12, "mushroom", "green peppers", "extra cheese")
+
+ 
